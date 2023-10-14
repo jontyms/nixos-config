@@ -3,7 +3,7 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -64,10 +64,12 @@
     nixosConfigurations = {
       # replace with your hostname
       nixostest = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit nixpkgs-unstable inputs outputs;};
+        specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
+	  hyprland.nixosModules.default
+	  {programs.hyprland.enable = true;}
         ];
       };
     };

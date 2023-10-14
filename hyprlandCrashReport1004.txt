@@ -1,0 +1,141 @@
+--------------------------------------------
+   Hyprland Crash Report
+--------------------------------------------
+Well this is awkward.
+
+Hyprland received signal 6 (Aborted)
+
+Version: 424c9a7e704590db5c823557e5e388e366f7b1cd
+Tag: 
+
+System info:
+	System name: Linux
+	Node name: testnixos
+	Release: 6.1.57
+	Version: #1-NixOS SMP PREEMPT_DYNAMIC Tue Oct 10 20:00:46 UTC 2023
+
+GPU:
+	00:01.0 VGA compatible controller [0300]: Red Hat, Inc. QXL paravirtual graphic card [1b36:0100] (rev 05) (prog-if 00 [VGA controller])
+
+
+os-release:
+	BUG_REPORT_URL="https://github.com/NixOS/nixpkgs/issues"
+	BUILD_ID="23.11.20231011.5e4c2ad"
+	DOCUMENTATION_URL="https://nixos.org/learn.html"
+	HOME_URL="https://nixos.org/"
+	ID=nixos
+	LOGO="nix-snowflake"
+	NAME=NixOS
+	PRETTY_NAME="NixOS 23.11 (Tapir)"
+	SUPPORT_URL="https://nixos.org/community.html"
+	VERSION="23.11 (Tapir)"
+	VERSION_CODENAME=tapir
+	VERSION_ID="23.11"
+	
+
+
+Backtrace:
+	#0 | /home/jonathan/.nix-profile/bin/Hyprland(_Z12getBacktracev+0x48) [0x560078]
+		_Z12getBacktracev
+		??:?
+	#1 | /home/jonathan/.nix-profile/bin/Hyprland(_ZN13CrashReporter18createAndSaveCrashEi+0x59f) [0x51d25f]
+		_ZN13CrashReporter18createAndSaveCrashEi
+		??:?
+	#2 | /home/jonathan/.nix-profile/bin/Hyprland(_Z25handleUnrecoverableSignali+0x3f) [0x496bcf]
+		_Z25handleUnrecoverableSignali
+		??:?
+	#3 | /nix/store/aw2fw9ag10wr9pf0qk4nk5sxi0q0bn56-glibc-2.37-8/lib/libc.so.6(+0x38d30) [0x7fdd7542dd30]
+		??
+		??:0
+	#4 | /nix/store/aw2fw9ag10wr9pf0qk4nk5sxi0q0bn56-glibc-2.37-8/lib/libc.so.6(+0x87a8c) [0x7fdd7547ca8c]
+		??
+		??:0
+	#5 | /nix/store/aw2fw9ag10wr9pf0qk4nk5sxi0q0bn56-glibc-2.37-8/lib/libc.so.6(gsignal+0x16) [0x7fdd7542dc86]
+		??
+		??:0
+	#6 | /nix/store/aw2fw9ag10wr9pf0qk4nk5sxi0q0bn56-glibc-2.37-8/lib/libc.so.6(abort+0xd7) [0x7fdd754178ba]
+		??
+		??:0
+	#7 | /nix/store/5hzwz8xcf58v3990snahmjjvb79b0amm-gcc-13.2.0-lib/lib/libstdc++.so.6(+0xacc0b) [0x7fdd756acc0b]
+		??
+		??:0
+	#8 | /nix/store/5hzwz8xcf58v3990snahmjjvb79b0amm-gcc-13.2.0-lib/lib/libstdc++.so.6(+0xbc21a) [0x7fdd756bc21a]
+		??
+		??:0
+	#9 | /nix/store/5hzwz8xcf58v3990snahmjjvb79b0amm-gcc-13.2.0-lib/lib/libstdc++.so.6(+0xbc285) [0x7fdd756bc285]
+		??
+		??:0
+	#10 | /nix/store/5hzwz8xcf58v3990snahmjjvb79b0amm-gcc-13.2.0-lib/lib/libstdc++.so.6(+0xbc4d7) [0x7fdd756bc4d7]
+		??
+		??:0
+	#11 | /home/jonathan/.nix-profile/bin/Hyprland() [0x45e1fc]
+		_Z10throwErrorRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.cold
+		??:?
+	#12 | /home/jonathan/.nix-profile/bin/Hyprland(_ZN11CCompositor10initServerEv+0x6dd) [0x4abacd]
+		_ZN11CCompositor10initServerEv
+		??:?
+	#13 | /home/jonathan/.nix-profile/bin/Hyprland(main+0xb09) [0x484129]
+		main
+		??:?
+	#14 | /nix/store/aw2fw9ag10wr9pf0qk4nk5sxi0q0bn56-glibc-2.37-8/lib/libc.so.6(+0x23ace) [0x7fdd75418ace]
+		??
+		??:0
+	#15 | /nix/store/aw2fw9ag10wr9pf0qk4nk5sxi0q0bn56-glibc-2.37-8/lib/libc.so.6(__libc_start_main+0x89) [0x7fdd75418b89]
+		??
+		??:0
+	#16 | /home/jonathan/.nix-profile/bin/Hyprland(_start+0x25) [0x496a35]
+		_start
+		??:?
+
+
+Log tail:
+PRETTY_NAME="NixOS 23.11 (Tapir)"
+SUPPORT_URL="https://nixos.org/community.html"
+VERSION="23.11 (Tapir)"
+VERSION_CODENAME=tapir
+VERSION_ID="23.11"
+
+[LOG] ========================
+
+
+
+[INFO] If you are crashing, or encounter any bugs, please consult https://wiki.hyprland.org/Crashes-and-Bugs/
+
+
+[LOG] 
+Current splash: Got a one-way ticket to the blues
+
+
+[LOG] Creating the HookSystem!
+[LOG] Creating the KeybindManager!
+[LOG] [hookSystem] New hook event registered: configReloaded
+[LOG] Creating the AnimationManager!
+[LOG] Created a bezier curve, baked 255 points, mem usage: 4.08kB, time to bake: 36.22µs. Estimated average calc time: 0.06µs.
+[LOG] Creating the ConfigManager!
+[LOG] Creating the CHyprError!
+[LOG] [hookSystem] New hook event registered: focusedMon
+[LOG] [hookSystem] New hook event registered: preRender
+[LOG] Creating the LayoutManager!
+[LOG] Reloading the config!
+[LOG] Created a bezier curve, baked 255 points, mem usage: 4.08kB, time to bake: 19.63µs. Estimated average calc time: 0.05µs.
+[LOG] Using config: /home/jonathan/.config/hypr/hyprland.conf
+[LOG] Disabling stdout logs! Check the log for further logs.
+[wlr] [libseat] [libseat/backend/seatd.c:64] Could not connect to socket /run/seatd.sock: No such file or directory
+[wlr] [libseat] [libseat/libseat.c:76] Backend 'seatd' failed to open seat, skipping
+[wlr] [libseat] [libseat/libseat.c:73] Seat opened with backend 'logind'
+[wlr] [backend/session/session.c:109] Successfully loaded libseat session
+[wlr] [backend/backend.c:220] Found 1 GPUs
+[wlr] [backend/drm/backend.c:202] Initializing DRM backend for /dev/dri/card0 (qxl)
+[wlr] [backend/drm/drm.c:105] Using atomic DRM interface
+[wlr] [backend/drm/drm.c:121] ADDFB2 modifiers supported
+[wlr] [backend/drm/drm.c:253] Found 4 DRM CRTCs
+[wlr] [backend/drm/drm.c:211] Found 8 DRM planes
+[wlr] [render/egl.c:206] Supported EGL client extensions: EGL_EXT_device_base EGL_EXT_device_enumeration EGL_EXT_device_query EGL_EXT_platform_base EGL_KHR_client_get_all_proc_addresses EGL_EXT_client_extensions EGL_KHR_debug EGL_EXT_platform_device EGL_EXT_platform_wayland EGL_KHR_platform_wayland EGL_EXT_platform_x11 EGL_KHR_platform_x11 EGL_EXT_platform_xcb EGL_MESA_platform_gbm EGL_KHR_platform_gbm EGL_MESA_platform_surfaceless
+[wlr] [EGL] command: eglQueryDeviceStringEXT, error: EGL_BAD_PARAMETER (0x300c), message: "eglQueryDeviceStringEXT"
+[wlr] [EGL] command: eglQueryDeviceStringEXT, error: EGL_BAD_PARAMETER (0x300c), message: "eglQueryDeviceStringEXT"
+[wlr] [render/egl.c:509] DRM device '/dev/dri/card0' has no render node, falling back to primary node
+[wlr] [render/egl.c:320] Software rendering detected, please use the WLR_RENDERER_ALLOW_SOFTWARE environment variable to proceed
+[wlr] [render/egl.c:572] Failed to initialize EGL context
+[wlr] [render/gles2/renderer.c:804] Could not initialize EGL
+[CRITICAL] m_sWLRRenderer was NULL!
+[CRITICAL] Critical error thrown: wlr_gles2_renderer_create_with_drm_fd() failed!

@@ -6,7 +6,7 @@
   lib,
   config,
   pkgs,
-  nixpkgs-unstable,
+  hyprland,
   ...
 }: {
   # You can import other NixOS modules here
@@ -24,10 +24,6 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
-#  programs.hyprland = {
-#  	enable = true;
-#	package = inputs.hyprland.packages.${pkgs.unstable}.hyprland;
-#  };
   nixpkgs = {
     # You can add overlays here
     overlays = [
