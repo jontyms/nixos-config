@@ -11,7 +11,7 @@
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-23.05";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
     hyprland.url = "github:hyprwm/Hyprland";
 
     # TODO: Add any other flake you might need
@@ -25,6 +25,7 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     hyprland,
     ...
@@ -63,12 +64,10 @@
     nixosConfigurations = {
       # replace with your hostname
       nixostest = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit nixpkgs-unstable inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
-	  hyprland.nixosModules.default
-          {programs.hyprland.enable = true;}
         ];
       };
     };
