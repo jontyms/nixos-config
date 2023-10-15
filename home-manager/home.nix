@@ -17,7 +17,7 @@
     # inputs.nix-colors.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
+     #./nvim.nix
   ];
   
   nixpkgs = {
@@ -55,11 +55,54 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-    home.packages = with pkgs; [ keepassxc firefox thunderbird ];
+    home.packages = with pkgs; [ keepassxc firefox thunderbird tmux fzf exa];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
+  programs.waybar.enable = true;
+  programs.wofi.enable = true;
   programs.git.enable = true;
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+      plugins = with pkgs.vimPlugins; [
+      nvim-lspconfig
+      nvim-treesitter.withAllGrammars
+    ];
+  };
+ programs.zsh = {
+  shellAliases = {
+    ll = "ls -l";
+    lsa ="exa -lah --no-permissions";
+    ls = "exa -a --icons  -h --time-style=iso";
+    lsr="exa --tree --level=3";
+  };
+ oh-my-zsh = {
+    enable = true;
+    plugins = [ "git" "zsh-autosuggestions" "zsh-syntax-highlighting" "history-substring-search" "fzf-tab" ];
+    theme = "powerlevel10k/powerlevel10k";
+  };
+};
+  wayland.windowManager.hyprland.extraConfig = ''
+    $mod = SUPER
+    bind = $mod, F, exec, firefox
+        ${builtins.concatStringsSep "\n" (builtins.genList (
+        x: let
+          ws = let
+            c = (x + 1) / 10;
+          in
+            builtins.toString (x + 1 - (c * 10));
+        in ''
+          bind = $mod, ${ws}, workspace, ${toString (x + 1)}
+          bind = $mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}
+                  ''
+      )
+      10)}
+
+      exec-once = waybar
+      bind=SUPER,R,exec,wofi
+
+  '';
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
