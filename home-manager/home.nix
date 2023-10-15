@@ -19,7 +19,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
   ];
-
+  
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -55,7 +55,7 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
+    home.packages = with pkgs; [ keepassxc firefox thunderbird ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

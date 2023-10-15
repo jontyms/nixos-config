@@ -108,6 +108,7 @@
 	wireplumber
 	polkit-kde-agent
 	spice-vdagent
+	sddm
 ];
   services.qemuGuest.enable = true;
   # This setups a SSH server. Very important if you're setting up a headless system.
