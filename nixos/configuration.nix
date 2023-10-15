@@ -20,7 +20,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
-    ./greetd.nix
+   # ./greetd.nix
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
@@ -114,7 +114,9 @@
   meslo-lgs-nf
   ];
   services.qemuGuest.enable = true;
-  services.logind.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+
+  #services.logind.enable = true;
     security.polkit.extraConfig = ''
 polkit.addRule(function(action, subject) {
       if (
