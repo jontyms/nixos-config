@@ -80,8 +80,10 @@
   # : This is just an example, be sure to use whatever bootloader you prefer
   # Bootloader.
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.device = "nodev";
   boot.loader.grub.useOSProber = true;
+  boot.loader.efi.canTouchEfiVariables = true;
   # : Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
     # : Replace with your username
@@ -115,6 +117,7 @@
   ];
   services.qemuGuest.enable = true;
   services.xserver.displayManager.gdm.enable = true;
+  services.xserver.enable = true;
 
   #services.logind.enable = true;
     security.polkit.extraConfig = ''

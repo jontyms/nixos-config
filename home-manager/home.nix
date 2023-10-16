@@ -55,7 +55,7 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-    home.packages = with pkgs; [ keepassxc firefox thunderbird tmux fzf exa];
+    home.packages = with pkgs; [ keepassxc firefox thunderbird tmux fzf eza];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
