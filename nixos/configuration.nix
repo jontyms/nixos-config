@@ -20,7 +20,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
-   # ./greetd.nix
+      ./greetd.nix
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
@@ -97,7 +97,7 @@
         # : Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
       # TO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = ["wheel"];
+      extraGroups = ["wheel" "seat" "networkmanager"];
     };
   };
 
@@ -111,14 +111,14 @@
 	polkit-kde-agent
 	spice-vdagent
 	sddm
+	seatd
 ];
   fonts.fonts = with pkgs; [
   meslo-lgs-nf
   ];
   services.qemuGuest.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.enable = true;
-
+  #services.xserver.displayManager.gdm.enable = true;
+  #services.xserver.enable = true;
   #services.logind.enable = true;
     security.polkit.extraConfig = ''
 polkit.addRule(function(action, subject) {
@@ -139,7 +139,7 @@ polkit.addRule(function(action, subject) {
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
-
+  security.polkit.enable = true;
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
   #services.xserver.displayManager.sddm.enable = true;

@@ -59,7 +59,7 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.waybar.enable = true;
+ # programs.waybar.enable = true;
   programs.wofi.enable = true;
   programs.git.enable = true;
   programs.neovim = {
@@ -70,6 +70,7 @@
       nvim-treesitter.withAllGrammars
     ];
   };
+ home.sessionVariables = { LIBSEAT_BACKEND = "logind"; };
  programs.zsh = {
   shellAliases = {
     ll = "ls -l";
