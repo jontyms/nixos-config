@@ -97,7 +97,7 @@
         # : Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
       # TO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = ["wheel" "seat" "networkmanager"];
+      extraGroups = ["wheel" "networkmanager"];
     };
   };
 
