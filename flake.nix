@@ -8,7 +8,7 @@
     # at the same time. Here's an working example:
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
-    inputs.agenix.url = "github:ryantm/agenix";
+    agenix.url = "github:ryantm/agenix";
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -68,7 +68,7 @@
         modules = [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
-          agenix.nixosModules.default
+        #  agenix.nixosModules.default
         ];
       };
     };
@@ -83,7 +83,7 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
-          agenix.nixosModules.default
+         # agenix.nixosModules.default
 	  hyprland.homeManagerModules.default
           {wayland.windowManager.hyprland.enable = true;}
         ];
