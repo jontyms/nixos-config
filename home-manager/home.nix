@@ -70,7 +70,7 @@
       nvim-treesitter.withAllGrammars
     ];
   };
- home.sessionVariables = { LIBSEAT_BACKEND = "logind"; };
+ home.sessionVariables = { LIBSEAT_BACKEND = "logind"; EDITOR = "nvim";};
  programs.zsh = {
   shellAliases = {
     ll = "ls -l";

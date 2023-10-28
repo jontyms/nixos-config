@@ -93,6 +93,7 @@
       # Be sure to change it (using passwd) after rebooting!
       initialPassword = "correcthorsebatterystaple";
       isNormalUser = true;
+      shell = "/bin/zsh";
       openssh.authorizedKeys.keys = [
         # : Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
@@ -113,8 +114,10 @@
 	sddm
 	seatd
 ];
-  fonts.fonts = with pkgs; [
+  fonts.packages =  [
   meslo-lgs-nf
+  fira-code
+  nerdfonts
   ];
   services.qemuGuest.enable = true;
   #services.xserver.displayManager.gdm.enable = true;
