@@ -102,7 +102,7 @@
       extraGroups = ["wheel" "networkmanager"];
     };
   };
-
+  programs.zsh.enable = true;
   environment.systemPackages = with pkgs; [
 	neovim
 	zsh
