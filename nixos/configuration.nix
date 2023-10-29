@@ -58,7 +58,7 @@
     # To make nix3 commands consistent with your flake
     registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
 
-    # This will additionally add your inputs to the system's legacy channels
+    # /his will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
     nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
@@ -93,9 +93,10 @@
       # Be sure to change it (using passwd) after rebooting!
       initialPassword = "correcthorsebatterystaple";
       isNormalUser = true;
-      shell = "/bin/zsh";
+      shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
         # : Add your SSH public key(s) here, if you plan on using SSH to connect
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOQFJZyMt9IXBy7MwZrxdkJa5HAMI3WSqFq4IkuueIlH jontyms@t480.jontyms.com"
       ];
       # TO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = ["wheel" "networkmanager"];
@@ -145,6 +146,7 @@ polkit.addRule(function(action, subject) {
   security.polkit.enable = true;
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
+  services.openssh.enable = true;
   #services.xserver.displayManager.sddm.enable = true;
   #services.xserver.enable = true;
 }

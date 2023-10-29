@@ -28,6 +28,7 @@
     nixpkgs-unstable,
     home-manager,
     hyprland,
+    agenix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -68,6 +69,7 @@
         modules = [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
+          agenix.nixosModules.default
         #  agenix.nixosModules.default
         ];
       };
